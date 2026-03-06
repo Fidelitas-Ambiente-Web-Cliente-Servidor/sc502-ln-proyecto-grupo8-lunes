@@ -27,7 +27,7 @@ require_once __DIR__ . "/../includes/navbar.php";
   </div>
 
   <p style="margin-top:18px; color:#666;">
-    Nota: Este sitio es un prototipo académico, por lo que la información mostrada puede ser de ejemplo.
+    Nota: Este sitio es un prototipo académico.
   </p>
 </main>
 

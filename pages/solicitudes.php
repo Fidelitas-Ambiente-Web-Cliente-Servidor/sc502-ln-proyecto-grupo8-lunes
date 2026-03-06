@@ -2,7 +2,7 @@
 require_once __DIR__ . "/../includes/header.php";
 require_once __DIR__ . "/../includes/navbar.php";
 
-// Lista "dummy" por ahora (en Avance 2 sirve para mostrar funcionamiento)
+
 $solicitudes = [
   ["id" => 1, "asunto" => "Fuga de agua", "tipo" => "Mantenimiento", "prioridad" => "Alta", "estado" => "Pendiente", "fecha" => "2026-03-03"],
   ["id" => 2, "asunto" => "Ruido en horario nocturno", "tipo" => "Convivencia", "prioridad" => "Media", "estado" => "En revisión", "fecha" => "2026-03-02"],
