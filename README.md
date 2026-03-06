@@ -1,0 +1,61 @@
+﻿# Sistema Web de Gestión de Solicitudes para Condominios
+
+## Integrantes del Grupo 8
+- MORA ALTAMIRANO JOSE ABRAHAM
+- MURILLO GARCIA ASHLY SOFIA
+- MONGE GUZMAN ALVARO RICARDO
+
+## Descripción del Proyecto
+Aplicación web para la gestión de solicitudes de mantenimiento y administración en condominios residenciales. Permite a los residentes enviar solicitudes y a los administradores darles seguimiento.
+
+## Tecnologías a Utilizar
+- **Frontend:** HTML5, CSS3, JavaScript
+- **Backend:** PHP
+- **Base de Datos:** MySQL
+- **Control de Versiones:** GitHub
+
+## Funcionalidades Principales
+- ✅ Registro de usuarios con roles (administrador/residente)
+- ✅ Inicio de sesión validado
+- ✅ CRUD completo de solicitudes
+- ✅ Validación de formularios
+- ✅ Base de datos con mínimo 3 tablas
+- ✅ Interfaz responsive básica
+
+## Estructura de la Base de Datos
+### Tabla: usuarios
+- id_usuario (PK)
+- nombre
+- correo
+- contraseña
+- rol (con referencia a tabla roles)
+
+### Tabla: solicitudes
+- id_solicitud (PK)
+- descripcion
+- fecha_creacion
+- estado
+- id_usuario (FK)
+
+### Tabla: roles
+- id_rol (PK)
+- nombre_rol
+
+## Mapa de Navegación
+1. Inicio
+2. Registro
+3. Inicio de Sesión
+4. Panel Principal (Dashboard)
+   - 4.1 Crear Solicitud
+   - 4.2 Visualizar Solicitudes
+   - 4.3 Modificar Solicitudes
+   - 4.4 Eliminar Solicitudes
+
+## Instalación y Configuración
+1. Clonar el repositorio
+2. Configurar base de datos MySQL
+3. Configurar archivo de conexión
+4. ¡Listo para usar!
+
+## Licencia
+Proyecto académico - Ambiente Web Cliente Servidor
