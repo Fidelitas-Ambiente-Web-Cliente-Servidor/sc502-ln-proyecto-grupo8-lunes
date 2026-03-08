@@ -7,6 +7,10 @@ require_once __DIR__ . "/includes/header.php";
 require_once __DIR__ . "/includes/navbar.php";
 ?>
 
+<div class="banner">
+  <img src="assets/images/imagen1.jpg" alt="Logo banner" class="logo-banner">
+</div>
+
 <main class="container">
   <h1>Sistema de Solicitudes – Condominio</h1>
   <p class="lead">

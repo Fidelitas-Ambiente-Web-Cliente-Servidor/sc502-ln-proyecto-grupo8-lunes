@@ -17,3 +17,20 @@ h1{font-size:34px;margin-bottom:10px}
 .card p{color:#666}
 
 .footer{margin-top:28px;padding:16px;text-align:center;color:#666}
+.banner {
+    width: 100%;
+    background: linear-gradient(90deg, #0f4c81, #3a7bd5);
+    padding: 20px;
+    text-align: center;
+}
+
+.banner{
+    width:100%;
+    text-align:center;
+    padding:15px;
+}
+
+.logo-banner{
+    max-width:300px;
+    height:auto;
+}
