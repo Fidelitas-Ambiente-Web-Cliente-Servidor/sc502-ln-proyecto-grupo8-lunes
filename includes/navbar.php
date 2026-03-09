@@ -1,5 +1,5 @@
 <nav class="navbar">
-  <div class="nav-brand">Condominio</div>
+  <h1 class="tituloNavBar">Condominio</h1>
   <div class="nav-links">
     <a href="/sc502-ln-proyecto-grupo8-lunes/">Inicio</a>
     <a href="/sc502-ln-proyecto-grupo8-lunes/pages/solicitudes.php">Solicitudes</a>

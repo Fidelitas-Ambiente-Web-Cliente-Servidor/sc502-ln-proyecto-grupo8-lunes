@@ -80,8 +80,13 @@ $solicitudes = [
             <td><?php echo $s["id"]; ?></td>
             <td><?php echo htmlspecialchars($s["asunto"]); ?></td>
             <td><?php echo $s["tipo"]; ?></td>
-            <td><?php echo $s["prioridad"]; ?></td>
-            <td><?php echo $s["estado"]; ?></td>
+            <td class="prioridad-<?php echo strtolower($s["prioridad"]); ?>">
+              <?php echo $s["prioridad"]; ?>
+            </td>
+
+            <td class="estado-<?php echo str_replace(" ", "", strtolower($s["estado"])); ?>">
+              <?php echo $s["estado"]; ?>
+            </td>
             <td><?php echo $s["fecha"]; ?></td>
           </tr>
         <?php endforeach; ?>
