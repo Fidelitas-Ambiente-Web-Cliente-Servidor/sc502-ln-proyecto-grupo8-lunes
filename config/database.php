@@ -1,8 +1,8 @@
 ﻿<?php
-// Configuración de la base de datos
-define("DB_HOST", "localhost");
-define("DB_USER", "root");
-define("DB_PASS", "");
+// Configuración de la base de datos para Docker
+define("DB_HOST", "db");
+define("DB_USER", "usuario_condo");
+define("DB_PASS", "clave123");
 define("DB_NAME", "condominio_db");
 
 // Crear conexión

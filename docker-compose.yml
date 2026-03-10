@@ -1,0 +1,40 @@
+services:
+  web:
+    build: .
+    container_name: proyecto_web
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    container_name: proyecto_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: condominio_db
+      MYSQL_USER: usuario_condo
+      MYSQL_PASSWORD: clave123
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: proyecto_phpmyadmin
+    restart: always
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root123
+    ports:
+      - "8081:80"
+
+volumes:
+  mysql_data:
