@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 require_once __DIR__ . "/config/database.php";
 
@@ -35,4 +36,5 @@ if ($resultado->num_rows === 1) {
 
 header("Location: login.php?error=1");
 exit;
-?>
+
+ob_end_flush();

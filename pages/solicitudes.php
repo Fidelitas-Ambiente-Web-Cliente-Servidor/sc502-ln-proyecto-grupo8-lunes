@@ -1,7 +1,13 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["usuario"])) {
+    header("Location: /login.php");
+    exit;
+}
+
 require_once __DIR__ . "/../includes/header.php";
 require_once __DIR__ . "/../includes/navbar.php";
-
 
 $solicitudes = [
   ["id" => 1, "asunto" => "Fuga de agua", "tipo" => "Mantenimiento", "prioridad" => "Alta", "estado" => "Pendiente", "fecha" => "2026-03-03"],
@@ -83,7 +89,6 @@ $solicitudes = [
             <td class="prioridad-<?php echo strtolower($s["prioridad"]); ?>">
               <?php echo $s["prioridad"]; ?>
             </td>
-
             <td class="estado-<?php echo str_replace(" ", "", strtolower($s["estado"])); ?>">
               <?php echo $s["estado"]; ?>
             </td>
