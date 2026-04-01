@@ -1,327 +1,306 @@
-/* config general para asegurar que todos los elementos
-   usen el mismo modelo de caja */
-
+/* Reset básico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: #f4f6f9;
-    color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f1f5f9;
+  color: #1e293b;
+  line-height: 1.5;
 }
 
-/* estilo para menu general */
-
-nav {
-    background: #1e3a5f;
-    padding: 15px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-nav ul li {
-    padding: 5px 10px;
-}
-
-nav ul li:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-}
-
-/* para la imagen de banner, debemos diseñar algo mejor */
-
-.banner {
-    width: 100%;
-    height: 220px;
-    overflow: hidden;
-}
-
-.logo-banner {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* margenes del contenido */
-
+/* Contenedor principal */
 .container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-    padding: 40px 0;
-    text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
 }
 
-.lead {
-    margin-bottom: 40px;
-    font-size: 18px;
-}
-
-/* para mostrar la info. en bloques */
-
-.cards {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-}
-
-.card {
-    background: white;
-    width: 250px;
-    padding: 25px;
-    border-radius: 10px;
-    text-decoration: none;
-    color: #333;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-.card h3 {
-    margin-bottom: 10px;
-}
-
-.card p {
-    font-size: 14px;
-    line-height: 1.6;
-    margin-top: 10px;
+/* Títulos */
+h1, h2, h3 {
+  color: #1e3a5f;
 }
 
 h1 {
-    margin-bottom: 15px;
-    color: #1e3a5f;
+  font-size: 2.6rem;
+  margin-bottom: 10px;
 }
 
-.contact-note {
-    margin-top: 20px;
-    color: #666;
-    font-size: 14px;
+h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
-footer {
-    background: #1e3a5f;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 40px;
+h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
 }
 
-/* estilo para forms, inputs, selects y textarea */
-
-.form-container {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 40px auto;
-    text-align: left;
+.lead {
+  font-size: 1.15rem;
+  color: #475569;
+  margin-bottom: 20px;
 }
 
-.form-group {
-    margin-bottom: 20px;
+/* Navbar */
+.navbar {
+  background: #1e3a5f;
+  color: #fff;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+.nav-brand {
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
-.form-group input,
-.form-group textarea,
-.form-group select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
+.nav-links {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
-.form-group textarea {
-    resize: vertical;
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: 0.2s ease;
 }
 
-/* para el listado de solicitudes */
-
-.table-container {
-    max-width: 1000px;
-    margin: 40px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.nav-links a:hover {
+  background: rgba(255, 255, 255, 0.14);
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th,
-td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
-}
-
-th {
-    background: #1e3a5f;
-    color: white;
-}
-
-tr:hover {
-    background: #f2f2f2;
-}
-
+/* Hero / paneles */
 .panel {
-    background: white;
-    padding: 25px;
-    margin-top: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+  margin-bottom: 28px;
 }
 
-.form {
-    margin-top: 20px;
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+.card {
+  display: block;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.field {
-    display: flex;
-    flex-direction: column;
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
 }
 
-.field label {
-    font-weight: bold;
-    margin-bottom: 5px;
+.card p {
+  color: #475569;
+  margin-top: 8px;
 }
 
-.field input,
-.field select,
-.field textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
-}
-
-.field textarea {
-    resize: vertical;
-}
-
-.field-full {
-    grid-column: 1 / -1;
-}
-
-/* estilo pa los botones */
-
+/* Botones */
 .btn {
-    margin-top: 15px;
-    background: #1e3a5f;
-    color: white;
-    border: none;
-    padding: 12px 18px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
+  display: inline-block;
+  background: #1e3a5f;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
 }
 
 .btn:hover {
-    background: #16304d;
+  background: #274d7a;
 }
 
-/* estilo pa las notas */
+/* Formularios */
+.form .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 22px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-full {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1e293b;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 14px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: #fff;
+  color: #0f172a;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #1e3a5f;
+  box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.12);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 110px;
+}
 
 .note {
-    font-size: 13px;
-    color: #777;
-    margin-top: 10px;
+  margin-top: 16px;
+  font-size: 0.95rem;
+  color: #64748b;
+  text-align: center;
 }
 
-/* para ponerle colorcito al estado y prioridades */
+/* Tablas */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #fff;
+}
 
+.table thead {
+  background: #1e3a5f;
+  color: #fff;
+}
+
+.table th,
+.table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.table tbody tr:hover {
+  background: #f8fafc;
+}
+
+/* Estados y prioridades */
 .prioridad-alta {
-    background: #ff6b6b;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 13px;
-    font-weight: bold;
+  background: #f87171;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 8px;
 }
 
 .prioridad-media {
-    background: #ffa94d;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 13px;
-    font-weight: bold;
+  background: #f59e42;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 8px;
 }
 
 .prioridad-baja {
-    background: #51cf66;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 13px;
-    font-weight: bold;
+  background: #55c95f;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 8px;
 }
 
 .estado-pendiente {
-    background: #ffd43b;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 13px;
-    font-weight: bold;
+  background: #f4d03f;
+  color: #1e293b;
+  font-weight: 700;
+  border-radius: 8px;
 }
 
-.estado-enrevisión {
-    background: #74c0fc;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 13px;
-    font-weight: bold;
+.estado-enrevisión,
+.estado-enrevision {
+  background: #76b4e6;
+  color: #0f172a;
+  font-weight: 700;
+  border-radius: 8px;
 }
 
-.estado-resuelto {
-    background: #8ce99a;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 13px;
-    font-weight: bold;
+.estado-resuelta {
+  background: #34d399;
+  color: #064e3b;
+  font-weight: 700;
+  border-radius: 8px;
 }
 
-/* titulo en el nav bar */
+/* Footer */
+.footer {
+  background: #1e3a5f;
+  color: #fff;
+  text-align: center;
+  padding: 18px;
+  margin-top: 40px;
+  font-size: 0.95rem;
+}
 
-.tituloNavBar {
-    color: #94b2d1;
+/* Responsive */
+@media (max-width: 768px) {
+  .form .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .nav-links {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding: 20px 14px;
+  }
+
+  .panel,
+  .card {
+    padding: 20px;
+  }
+
+  .table th,
+  .table td {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
 }
