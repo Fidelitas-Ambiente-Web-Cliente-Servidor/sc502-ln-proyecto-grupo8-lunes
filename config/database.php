@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 define("DB_HOST", "db");
 define("DB_USER", "usuario_condo");
 define("DB_PASS", "clave123");
