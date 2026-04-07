@@ -303,4 +303,24 @@ textarea {
     font-size: 0.95rem;
     padding: 10px;
   }
+  .nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.nav-buttons button {
+    background-color: #0f4c81;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.nav-buttons button:hover {
+    background-color: #3a7bd5;
+}
 }
