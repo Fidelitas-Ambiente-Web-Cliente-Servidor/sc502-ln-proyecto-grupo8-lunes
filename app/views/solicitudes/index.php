@@ -67,7 +67,8 @@ require_once __DIR__ . "/../../../includes/navbar.php";
             </thead>
 
             <tbody>
-                <?php if ($solicitudes && $solicitudes->num_rows > 0): ?>
+                <!-- verifica si hay registros antes de mostrarlos -->
+                <?php if ($solicitudes instanceof mysqli_result && $solicitudes->num_rows > 0): ?> 
                     <?php while ($s = $solicitudes->fetch_assoc()): ?>
                         <tr>
                             <td><?= $s["id_solicitud"]; ?></td>
@@ -85,14 +86,14 @@ require_once __DIR__ . "/../../../includes/navbar.php";
                             <td><?= htmlspecialchars($s["fecha_creacion"]); ?></td>
 
                             <td>
-                                <a href="<?= $BASE ?>/index.php?page=editar_solicitud&id=<?= $s["id_solicitud"]; ?>" class="btn">
+                                <a href="<?= $BASE ?>/index.php?page=editar_solicitud&id=<?= $s["id_solicitud"]; ?>"
+                                    class="btn">
                                     Editar
                                 </a>
 
                                 <a href="<?= $BASE ?>/index.php?page=eliminar_solicitud&id=<?= $s["id_solicitud"]; ?>"
-                                   class="btn"
-                                   style="background:#dc2626;"
-                                   onclick="return confirm('¿Eliminar esta solicitud?');">
+                                    class="btn" style="background:#dc2626;"
+                                    onclick="return confirm('¿Eliminar esta solicitud?');">
                                     Eliminar
                                 </a>
                             </td>
