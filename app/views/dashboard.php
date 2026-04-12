@@ -1,47 +1,19 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
 
 if (!isset($_SESSION["usuario"])) {
-    header("Location: /login.php");
+    header("Location: index.php?page=login");
     exit;
 }
 
-require_once __DIR__ . "/config/database.php";
-require_once __DIR__ . "/includes/header.php";
-require_once __DIR__ . "/includes/navbar.php";
+require_once __DIR__ . "/../../includes/header.php";
+require_once __DIR__ . "/../../includes/navbar.php";
 
 $usuario = $_SESSION["usuario"];
 
-$totalSolicitudes = 0;
-$pendientes = 0;
-$enRevision = 0;
-$resueltas = 0;
-
-$sqlTotal = "SELECT COUNT(*) AS total FROM solicitudes";
-$resTotal = $conn->query($sqlTotal);
-if ($resTotal && $fila = $resTotal->fetch_assoc()) {
-    $totalSolicitudes = $fila["total"];
-}
-
-$sqlPendientes = "SELECT COUNT(*) AS total FROM solicitudes WHERE estado = 'Pendiente'";
-$resPendientes = $conn->query($sqlPendientes);
-if ($resPendientes && $fila = $resPendientes->fetch_assoc()) {
-    $pendientes = $fila["total"];
-}
-
-$sqlRevision = "SELECT COUNT(*) AS total FROM solicitudes WHERE estado = 'En revisión'";
-$resRevision = $conn->query($sqlRevision);
-if ($resRevision && $fila = $resRevision->fetch_assoc()) {
-    $enRevision = $fila["total"];
-}
-
-$sqlResueltas = "SELECT COUNT(*) AS total FROM solicitudes WHERE estado = 'Resuelta'";
-$resResueltas = $conn->query($sqlResueltas);
-if ($resResueltas && $fila = $resResueltas->fetch_assoc()) {
-    $resueltas = $fila["total"];
-}
+$totalSolicitudes = $resumen["total"];
+$pendientes = $resumen["pendientes"];
+$enRevision = $resumen["revision"];
+$resueltas = $resumen["resueltas"];
 ?>
 
 <main class="container">
@@ -86,7 +58,7 @@ if ($resResueltas && $fila = $resResueltas->fetch_assoc()) {
         <h3>Accesos rápidos</h3>
 
         <div class="cards">
-            <a class="card" href="<?= $BASE ?>/pages/solicitudes.php">
+            <a class="card" href="<?= $BASE ?>/index.php?page=solicitudes">
                 <h3>Solicitudes</h3>
                 <p>Crear, consultar, editar y eliminar solicitudes del sistema.</p>
             </a>
@@ -96,7 +68,7 @@ if ($resResueltas && $fila = $resResueltas->fetch_assoc()) {
                 <p>Regresar a la página principal del proyecto.</p>
             </a>
 
-            <a class="card" href="<?= $BASE ?>/logout.php">
+            <a class="card" href="<?= $BASE ?>/index.php?page=logout">
                 <h3>Cerrar sesión</h3>
                 <p>Salir del sistema de forma segura.</p>
             </a>
@@ -104,4 +76,4 @@ if ($resResueltas && $fila = $resResueltas->fetch_assoc()) {
     </section>
 </main>
 
-<?php require_once __DIR__ . "/includes/footer.php"; ?>
+<?php require_once __DIR__ . "/../../includes/footer.php"; ?>

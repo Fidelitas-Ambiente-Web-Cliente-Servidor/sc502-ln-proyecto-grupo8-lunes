@@ -1,12 +1,13 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) {
-    session_start();
+  session_start();
 }
 
-$BASE = "";
+$BASE = "/sc502-ln-proyecto-grupo8-lunes";
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html l
+ang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

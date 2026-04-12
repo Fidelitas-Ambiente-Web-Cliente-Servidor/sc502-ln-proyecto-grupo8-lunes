@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . "/../includes/header.php";
-require_once __DIR__ . "/../includes/navbar.php";
+require_once __DIR__ . "/../../includes/header.php";
+require_once __DIR__ . "/../../includes/navbar.php";
 ?>
 
 <main class="container">
@@ -37,4 +37,4 @@ require_once __DIR__ . "/../includes/navbar.php";
   </div>
 </main>
 
-<?php require_once __DIR__ . "/../includes/footer.php"; ?>
+<?php require_once __DIR__ . "/../../includes/footer.php"; ?>

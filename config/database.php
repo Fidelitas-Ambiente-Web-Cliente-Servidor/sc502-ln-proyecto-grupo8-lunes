@@ -1,18 +1,27 @@
 <?php
-define("DB_HOST", "db");
-define("DB_USER", "usuario_condo");
-define("DB_PASS", "clave123");
-define("DB_NAME", "condominio_db");
+class Database
+{
+    private $host = "db"; 
+    private $db = "appdb";
+    private $user = "appuser";  
+    private $pass = "apppass";  
 
-$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    public function connect()
+    {
+        $conn = new mysqli(
+            $this->host,
+            $this->user,
+            $this->pass,
+            $this->db
+            //admin@test.com pass: 12345
+        );
 
-if ($conn->connect_error) {
-    die("Error de conexión: " . $conn->connect_error);
-}
+        if ($conn->connect_error) {
+            die("Error conexión: " . $conn->connect_error);
+        }
 
-$conn->set_charset("utf8");
+        $conn->set_charset("utf8");
 
-function getConnection() {
-    global $conn;
-    return $conn;
+        return $conn;
+    }
 }

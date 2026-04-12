@@ -1,78 +1,74 @@
 <?php
-require_once __DIR__ . "/includes/header.php";
-require_once __DIR__ . "/includes/navbar.php";
-?>
+session_start();
+$page = $_GET['page'] ?? 'home';
 
-<main class="container">
-    <section class="panel" style="text-align:center; padding:40px 24px;">
-        <h1>Sistema de Solicitudes – Condominio</h1>
-        <p class="lead" style="max-width: 800px; margin: 0 auto 24px;">
-            Plataforma web para registrar, dar seguimiento y administrar solicitudes de mantenimiento,
-            seguridad, convivencia y asuntos administrativos dentro del condominio.
-        </p>
+switch ($page) {
 
-        <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:20px;">
-            <?php if (isset($_SESSION["usuario"])): ?>
-                <a href="<?= $BASE ?>/dashboard.php" class="btn" style="text-decoration:none;">
-                    Ir al panel
-                </a>
-                <a href="<?= $BASE ?>/pages/solicitudes.php" class="btn" style="text-decoration:none;">
-                    Ver solicitudes
-                </a>
-            <?php else: ?>
-                <a href="<?= $BASE ?>/login.php" class="btn" style="text-decoration:none;">
-                    Iniciar sesión
-                </a>
-            <?php endif; ?>
-        </div>
-    </section>
+    case 'home':
+        require_once "app/views/home.php";
+        break;
 
-    <section class="cards" style="margin-top:28px;">
-        <div class="card">
-            <h3>Registro de solicitudes</h3>
-            <p>
-                Permite crear solicitudes de forma ordenada, indicando asunto, tipo, prioridad,
-                fecha y descripción de la situación reportada.
-            </p>
-        </div>
+    case "login":
+        require_once "app/controllers/AuthController.php";
+        $controller = new AuthController();
+        $controller->showLogin();
+        break;
 
-        <div class="card">
-            <h3>Seguimiento de casos</h3>
-            <p>
-                Las solicitudes quedan almacenadas en la base de datos, permitiendo su revisión,
-                edición y actualización según el estado del trámite.
-            </p>
-        </div>
+    case "procesar_login":
+        require_once "app/controllers/AuthController.php";
+        $controller = new AuthController();
+        $controller->login();
+        break;
 
-        <div class="card">
-            <h3>Administración centralizada</h3>
-            <p>
-                El sistema concentra la información en un solo lugar, facilitando la gestión
-                y el control administrativo de las solicitudes del condominio.
-            </p>
-        </div>
-    </section>
+    case 'dashboard':
+        require_once "app/controllers/DashboardController.php";
+        (new DashboardController())->index();
+        break;
 
-    <section class="panel" style="margin-top:28px;">
-        <h2 style="margin-bottom:16px;">Accesos rápidos</h2>
+    case 'solicitudes':
+        require_once "app/controllers/SolicitudController.php";
+        (new SolicitudController())->index();
+        break;
 
-        <div class="cards">
-            <a class="card" href="<?= $BASE ?>/pages/solicitudes.php">
-                <h3>Solicitudes</h3>
-                <p>Registrar, consultar, editar y eliminar solicitudes del sistema.</p>
-            </a>
+    case "guardar_solicitud":
+        require_once "app/controllers/SolicitudController.php";
+        $controller = new SolicitudController();
+        $controller->store();
+        break;
 
-            <a class="card" href="<?= $BASE ?>/pages/nosotros.php">
-                <h3>Nosotros</h3>
-                <p>Conocer el objetivo, alcance y propósito general del proyecto.</p>
-            </a>
+    case "editar_solicitud":
+        require_once "app/controllers/SolicitudController.php";
+        $controller = new SolicitudController();
+        $controller->edit();
+        break;
 
-            <a class="card" href="<?= $BASE ?>/pages/contacto.php">
-                <h3>Contacto</h3>
-                <p>Visualizar medios de contacto y datos generales del sistema.</p>
-            </a>
-        </div>
-    </section>
-</main>
+    case "actualizar_solicitud":
+        require_once "app/controllers/SolicitudController.php";
+        $controller = new SolicitudController();
+        $controller->update();
+        break;
 
-<?php require_once __DIR__ . "/includes/footer.php"; ?>
+    case "eliminar_solicitud":
+        require_once "app/controllers/SolicitudController.php";
+        $controller = new SolicitudController();
+        $controller->delete();
+        break;
+
+    case 'nosotros':
+        require_once "app/views/nosotros.php";
+        break;
+
+    case 'contacto':
+        require_once "app/views/contacto.php";
+        break;
+
+    case "logout":
+        require_once "app/controllers/AuthController.php";
+        $controller = new AuthController();
+        $controller->logout();
+        break;
+
+    default:
+        require_once "app/views/home.php";
+        break;
+}
