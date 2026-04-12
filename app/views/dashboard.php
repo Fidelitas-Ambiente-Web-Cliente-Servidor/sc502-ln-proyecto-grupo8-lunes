@@ -58,17 +58,17 @@ $resueltas = $resumen["resueltas"];
         <h3>Accesos rápidos</h3>
 
         <div class="cards">
-            <a class="card" href="<?= $BASE ?>/index.php?page=solicitudes">
+            <a class="card" href="index.php?page=solicitudes">
                 <h3>Solicitudes</h3>
                 <p>Crear, consultar, editar y eliminar solicitudes del sistema.</p>
             </a>
 
-            <a class="card" href="<?= $BASE ?>/index.php">
+            <a class="card" href="index.php">
                 <h3>Ir al inicio</h3>
                 <p>Regresar a la página principal del proyecto.</p>
             </a>
 
-            <a class="card" href="<?= $BASE ?>/index.php?page=logout">
+            <a class="card" href="index.php?page=logout">
                 <h3>Cerrar sesión</h3>
                 <p>Salir del sistema de forma segura.</p>
             </a>

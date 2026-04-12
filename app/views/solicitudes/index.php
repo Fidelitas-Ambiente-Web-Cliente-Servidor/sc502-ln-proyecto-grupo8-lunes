@@ -9,7 +9,7 @@ require_once __DIR__ . "/../../../includes/navbar.php";
     <section class="panel">
         <h3>Nueva solicitud</h3>
 
-        <form class="form" method="POST" action="<?= $BASE ?>/index.php?page=guardar_solicitud">
+        <form class="form" method="POST" action="index.php?page=guardar_solicitud">
             <div class="grid">
                 <div class="field">
                     <label>Asunto</label>
@@ -67,8 +67,7 @@ require_once __DIR__ . "/../../../includes/navbar.php";
             </thead>
 
             <tbody>
-                <!-- verifica si hay registros antes de mostrarlos -->
-                <?php if ($solicitudes instanceof mysqli_result && $solicitudes->num_rows > 0): ?> 
+                <?php if ($solicitudes instanceof mysqli_result && $solicitudes->num_rows > 0): ?>
                     <?php while ($s = $solicitudes->fetch_assoc()): ?>
                         <tr>
                             <td><?= $s["id_solicitud"]; ?></td>
@@ -86,14 +85,14 @@ require_once __DIR__ . "/../../../includes/navbar.php";
                             <td><?= htmlspecialchars($s["fecha_creacion"]); ?></td>
 
                             <td>
-                                <a href="<?= $BASE ?>/index.php?page=editar_solicitud&id=<?= $s["id_solicitud"]; ?>"
-                                    class="btn">
+                                <a href="index.php?page=editar_solicitud&id=<?= $s["id_solicitud"]; ?>" class="btn">
                                     Editar
                                 </a>
 
-                                <a href="<?= $BASE ?>/index.php?page=eliminar_solicitud&id=<?= $s["id_solicitud"]; ?>"
-                                    class="btn" style="background:#dc2626;"
-                                    onclick="return confirm('¿Eliminar esta solicitud?');">
+                                <a href="index.php?page=eliminar_solicitud&id=<?= $s["id_solicitud"]; ?>"
+                                   class="btn"
+                                   style="background:#dc2626;"
+                                   onclick="return confirm('¿Eliminar esta solicitud?');">
                                     Eliminar
                                 </a>
                             </td>

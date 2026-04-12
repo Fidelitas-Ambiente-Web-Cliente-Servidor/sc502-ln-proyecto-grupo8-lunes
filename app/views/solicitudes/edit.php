@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . "/../../includes/header.php";
-require_once __DIR__ . "/../../includes/navbar.php";
+require_once __DIR__ . "/../../../includes/header.php";
+require_once __DIR__ . "/../../../includes/navbar.php";
 ?>
 
 <main class="container">
@@ -9,7 +9,6 @@ require_once __DIR__ . "/../../includes/navbar.php";
     <section class="panel">
         <form class="form" method="POST" action="index.php?page=actualizar_solicitud">
 
-            <!-- id oculto -->
             <input type="hidden" name="id" value="<?= $solicitud["id_solicitud"]; ?>">
 
             <div class="grid">
@@ -39,7 +38,7 @@ require_once __DIR__ . "/../../includes/navbar.php";
 
                 <div class="field">
                     <label>Fecha</label>
-                    <input type="date" name="fecha" value="<?= $solicitud["fecha_creacion"]; ?>" required>
+                    <input type="date" name="fecha" value="<?= htmlspecialchars($solicitud["fecha_creacion"]); ?>" required>
                 </div>
 
                 <div class="field">
@@ -57,9 +56,10 @@ require_once __DIR__ . "/../../includes/navbar.php";
                 </div>
             </div>
 
-            <button class="btn">Actualizar</button>
+            <button class="btn" type="submit">Actualizar</button>
+            <a href="index.php?page=solicitudes" class="btn" style="background:#6b7280;">Cancelar</a>
         </form>
     </section>
 </main>
 
-<?php require_once __DIR__ . "/../../includes/footer.php"; ?>
+<?php require_once __DIR__ . "/../../../includes/footer.php"; ?>

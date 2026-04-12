@@ -3,7 +3,6 @@ require_once __DIR__ . "/../../config/database.php";
 
 class AuthController
 {
-
     private $conn;
 
     public function __construct()
@@ -19,11 +18,10 @@ class AuthController
 
     public function login()
     {
-
         $correo = $_POST["correo"];
         $contrasena = $_POST["contrasena"];
 
-        $sql = "SELECT id_usuario, nombre, correo, contrasena, id_rol 
+        $sql = "SELECT id_usuario, nombre, correo, contrasena, id_rol
                 FROM tablaUsuarios WHERE correo = ?";
 
         $stmt = $this->conn->prepare($sql);
@@ -36,7 +34,6 @@ class AuthController
             $usuario = $resultado->fetch_assoc();
 
             if (password_verify($contrasena, $usuario["contrasena"])) {
-
                 $_SESSION["usuario"] = [
                     "id" => $usuario["id_usuario"],
                     "nombre" => $usuario["nombre"],
@@ -44,19 +41,20 @@ class AuthController
                     "rol" => $usuario["id_rol"]
                 ];
 
-                header("Location: " . "/sc502-ln-proyecto-grupo8-lunes/index.php?page=dashboard");
+                header("Location: index.php?page=dashboard");
                 exit;
             }
         }
 
         header("Location: index.php?page=login&error=1");
+        exit;
     }
 
     public function logout()
     {
         $_SESSION = [];
         session_destroy();
-        header("Location: /sc502-ln-proyecto-grupo8-lunes/index.php?page=login");
+        header("Location: index.php?page=login");
         exit;
     }
 }
