@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 $page = $_GET['page'] ?? 'home';
 
 switch ($page) {
@@ -10,14 +11,17 @@ switch ($page) {
 
     case "login":
         require_once "app/controllers/AuthController.php";
-        $controller = new AuthController();
-        $controller->showLogin();
+        (new AuthController())->showLogin();
         break;
 
     case "procesar_login":
         require_once "app/controllers/AuthController.php";
-        $controller = new AuthController();
-        $controller->login();
+        (new AuthController())->login();
+        break;
+
+    case "logout":
+        require_once "app/controllers/AuthController.php";
+        (new AuthController())->logout();
         break;
 
     case 'dashboard':
@@ -25,33 +29,34 @@ switch ($page) {
         (new DashboardController())->index();
         break;
 
-    case 'solicitudes':
-        require_once "app/controllers/SolicitudController.php";
-        (new SolicitudController())->index();
+    case 'reportes':
+        require_once "app/controllers/ReporteController.php";
+        (new ReporteController())->index();
         break;
 
-    case "guardar_solicitud":
-        require_once "app/controllers/SolicitudController.php";
-        $controller = new SolicitudController();
-        $controller->store();
+    case 'guardar_reporte':
+        require_once "app/controllers/ReporteController.php";
+        (new ReporteController())->store();
         break;
 
-    case "editar_solicitud":
-        require_once "app/controllers/SolicitudController.php";
-        $controller = new SolicitudController();
-        $controller->edit();
+    case 'cambiar_estado':
+        require_once "app/controllers/ReporteController.php";
+        (new ReporteController())->cambiarEstado();
         break;
 
-    case "actualizar_solicitud":
-        require_once "app/controllers/SolicitudController.php";
-        $controller = new SolicitudController();
-        $controller->update();
+    case 'asignar_fecha_limite':
+        require_once "app/controllers/ReporteController.php";
+        (new ReporteController())->asignarFechaLimite();
         break;
 
-    case "eliminar_solicitud":
-        require_once "app/controllers/SolicitudController.php";
-        $controller = new SolicitudController();
-        $controller->delete();
+    case 'guardar_seguimiento':
+        require_once "app/controllers/SeguimientoController.php";
+        (new SeguimientoController())->store();
+        break;
+
+    case 'ver_seguimiento':
+        require_once "app/controllers/SeguimientoController.php";
+        (new SeguimientoController())->listarPorReporte();
         break;
 
     case 'nosotros':
@@ -62,10 +67,19 @@ switch ($page) {
         require_once "app/views/contacto.php";
         break;
 
-    case "logout":
+    case "register":
         require_once "app/controllers/AuthController.php";
-        $controller = new AuthController();
-        $controller->logout();
+        (new AuthController())->showRegister();
+        break;
+
+    case "procesar_register":
+        require_once "app/controllers/AuthController.php";
+        (new AuthController())->register();
+        break;
+
+    case 'ver_reporte':
+        require_once "app/controllers/ReporteController.php";
+        (new ReporteController())->ver();
         break;
 
     default:
